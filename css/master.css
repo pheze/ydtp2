@@ -1,0 +1,55 @@
+/* Elements */
+body {
+   padding: 0px;
+   margin: 0px;
+   font-size: 90%;
+   background-color: #e7e7de
+}
+
+/* Layout */
+.wrapper{
+   margin: 0px auto;
+   width: 1024px;
+   background-color: #cccccc
+}
+.header{
+   float: left;
+   width: 100%;
+   background-color: #ffffff
+}
+
+.header .header-logo {
+    float: left;
+    width: 75%;
+}
+
+.header .header-login {
+    float: left;
+    width: 25%;
+    padding-top: 3.5em;
+    color: gray;
+}
+
+.left1{
+   float: left;
+   margin-right: 10px;
+   width: 256px;
+   background-color: #ccccff
+}
+.left2{
+   float: left;
+   margin-right: 10px;
+   width: 512px;
+   background-color: #ccccff
+}
+.right{
+   float: right;
+   width: 236px;
+   background-color: #ccccff
+}
+.footer{
+   float: left;
+   width: 100%;
+   background-color: #cfcfcf
+}
+

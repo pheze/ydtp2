@@ -26,6 +26,7 @@ body {
     width: 25%;
     padding-top: 3.5em;
     color: gray;
+    font-family: sans-serif;
 }
 
 .header .header-login .header-login-form {
@@ -88,3 +89,22 @@ body {
     color: gray;
 }
 
+/* Forms */
+
+fieldset.form label {
+    float: left;
+}
+fieldset.form label.row {
+    float: left;
+    clear: both;
+    width: 123px;
+    text-align: right;
+    padding-right: 10px;
+}
+
+fieldset.form input {
+    float: left;
+}
+fieldset.form select {
+    float: left;
+}

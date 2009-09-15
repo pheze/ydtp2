@@ -7,6 +7,7 @@ body {
 }
 
 h2 {
+  margin-top: 0;
   color: #154695;
 }
 
@@ -98,6 +99,9 @@ h2 {
     float: left;
     width: 512px;
 }
+.content.index-content {
+  background: url("../images/white_background.jpg") no-repeat;
+}
 .right{
     float: left;
     text-align: center;
@@ -123,8 +127,12 @@ h2 {
 /* Forms
 ----------------------------------------------------------- */
 
+fieldset.form {
+  margin-bottom: 1.5em;
+}
 fieldset.form label {
     float: left;
+    padding-top: 3px;
 }
 fieldset.form label.row {
     float: left;
@@ -132,11 +140,17 @@ fieldset.form label.row {
     width: 123px;
     text-align: right;
     padding-right: 10px;
+    padding-bottom: 1em;
 }
 
 fieldset.form input {
     float: left;
+    margin-right: 5px;
 }
 fieldset.form select {
     float: left;
+    margin-right: 5px;
+}
+.button {
+  margin-right: 5px;
 }

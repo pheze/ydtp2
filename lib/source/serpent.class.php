@@ -41,7 +41,7 @@ class Serpent
 
 	public function __construct()
 		{
-		$this->compile_dir = '../view/templates_compiled/';
+		$this->compile_dir = 'templates_compiled/';
 		$this->plugins_dir[] = dirname(__FILE__).'/plugins/';		
 		}
 

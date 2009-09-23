@@ -11,7 +11,7 @@
 
 class SerpentResourceFile extends SerpentResourceAbstract
     {
-	public $template_dir = '../view/templates/';
+	public $template_dir = 'templates/';
 	public $suffix = '.tpl';
 	public $language = 'en';
 		

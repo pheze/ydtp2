@@ -4,20 +4,7 @@
 <p>Bienvenue sur le site web <b>Canadiens jusqu'au bout du monde!</b></p>
 <p>N'oubliez pas de vous <a href="index.php?section=inscription">inscrire</a> afin de pouvoir acheter des billets.<p/> 
 Nombre de visite dans cette session: ~~$count~<br>
-UserID: ~~$userid~<br>
-Admin: 
-~ if ($isadmin) {~
-oui
-~ } else {~
-non
-~}~
-<br>
-Logged:
-~ if ($is_logged) {~
-oui
-~ } else { ~
-non
-~ } ~
+
 
 
 

@@ -43,6 +43,24 @@
                 ~[header]~
                 <h2>~~$section_name~</h2> 
                 ~[/header]~
+                --debug--<br>
+                UserID: ~~$userid~<br>
+                Admin: 
+                ~ if ($isadmin) {~
+                oui
+                ~ } else {~
+                non
+                ~}~
+                <br>
+                Logged:
+                ~ if ($is_logged) {~
+                oui
+                ~ } else { ~
+                non
+                ~ } ~<br>
+                --debug--
+                <br><br>
+
                 ~[content]~
                 ~[/content]~
             </div>

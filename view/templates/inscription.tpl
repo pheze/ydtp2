@@ -1,5 +1,9 @@
 ~:extend('base')~
 ~[content]~
+
+~ if ($is_logged) { ~
+    Vous êtes déjà identifié en tant que membre :)
+~ } else { ~
 <form id="inscription" action="" method="post">
     <fieldset class="form">
         <legend>Informations d'identification</legend>
@@ -183,4 +187,5 @@
     </fieldset>
     <p><input type="submit" value="J’accepte" class="button"/><input type="reset" value="Réinitialiser" class="button"/></p>
 </form>
+~ } ~
 ~[/content]~

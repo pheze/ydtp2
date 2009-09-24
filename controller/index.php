@@ -3,8 +3,9 @@
 include '../lib/util.php';
 include('../lib/source/serpent.class.php');
 
+session_start();
 
-$sections = array('accueil', 'inscription', 'login', 'matchs', 'panier', 'achat', 'match_detail');
+$sections = array('accueil', 'inscription', 'login', 'matchs', 'panier', 'achat', 'match_detail', 'signout');
 $section = get($_GET, 'section', 'accueil');
 
 if (!in_array($section, $sections)) {
@@ -13,8 +14,9 @@ if (!in_array($section, $sections)) {
 
 
 $vars = array();
-$vars['isadmin'] = is_admin(); 
 $vars['userid'] = get_auth();
+$vars['isadmin'] = is_admin();
+$vars['is_logged'] = ($vars['userid'] >= 0);
 
 include($section . '.php');
 generate_vars($section, $vars); 

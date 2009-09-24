@@ -12,7 +12,7 @@
                 <div class="header-logo"><img src="/view/images/logo.jpg" alt="logo"/></div>
                 <div class="header-login">
                     <div class="header-login-form">
-                        <form id="login" action="" method="post">
+                        <form id="login" action="index.php?section=login" method="post">
                             <p>
                                 Usager:<br />
                                 <input type="text" name="username"/>
@@ -35,6 +35,7 @@
 	                    <li><a href="index.php?section=inscription">Inscription</a></li>
 	                    <li><a href="index.php?section=matchs">Matchs</a></li>
                         <li><a href="index.php?section=panier">Panier</a></li>
+                        <li><a href="index.php?section=signout">Signout***</a></li>
 	                </ul>
 				</div>
             </div>

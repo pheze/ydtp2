@@ -11,6 +11,13 @@ oui
 ~ } else {~
 non
 ~}~
+<br>
+Logged:
+~ if ($is_logged) {~
+oui
+~ } else { ~
+non
+~ } ~
 
 
 

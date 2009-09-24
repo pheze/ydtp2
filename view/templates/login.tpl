@@ -1,7 +1,7 @@
 ~:extend('base')~
 
 ~[content]~
-~ if ($userid > 0): ~
+~ if ($is_logged): ~
     Vous vous êtes bien identifié :)
 ~ else: ~
     Échec lors de l'identification :(

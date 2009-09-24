@@ -79,7 +79,7 @@ h2 {
     width: auto;
 }
 
-.menu li a:hover{
+.menu li a:hover {
     border-left: 10px solid #ffffff;
     color: #fff;
 }

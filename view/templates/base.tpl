@@ -4,12 +4,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Canadiens jusqu'au bout du monde</title>
-        <link rel="stylesheet" type="text/css" href="../css/master.css" />
+        <link rel="stylesheet" type="text/css" href="/view/css/master.css" />
     </head>
     <body>
         <div class="wrapper">
             <div class="header">
-                <div class="header-logo"><img src="../images/logo.jpg" alt="logo"/></div>
+                <div class="header-logo"><img src="/view/images/logo.jpg" alt="logo"/></div>
                 <div class="header-login">
                     <div class="header-login-form">
                         <form id="login" action="" method="post">
@@ -31,18 +31,22 @@
             <div class="left">
 				<div class="menu">
 	                <ul>
-	                    <li><a href="index.html">Accueil</a></li>
-	                    <li><a href="inscription.html">Inscription</a></li>
-	                    <li><a href="">Achat</a></li>
+	                    <li><a href="index.php">Accueil</a></li>
+	                    <li><a href="index.php?section=inscription">Inscription</a></li>
+	                    <li><a href="index.php?section=matchs">Matchs</a></li>
+                        <li><a href="index.php?section=panier">Panier</a></li>
 	                </ul>
 				</div>
             </div>
             <div class="content index-content">
-                <h2>Bienvenue sur le site des canadiens</h2>
-                <p>Veuillez vous inscrire au site afin d'obtenir des billets.</p>
+                ~[header]~
+                <h2>~~$section_name~</h2> 
+                ~[/header]~
+                ~[content]~
+                ~[/content]~
             </div>
             <div class="right">
-                <img src="../images/banner.gif" alt="banner" />
+                <img src="/view/images/banner.gif" alt="banner" />
             </div>
             <div class="footer">
                 <p>Copyright 1999-2009 par <a href="http://www.wix.com/Vechkin94/Poly-Habs">Poly-Habs</a>. Tous droits réservés.</p>

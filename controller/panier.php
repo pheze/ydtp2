@@ -1,0 +1,7 @@
+<?php 
+
+function generate_vars($section, $vars) {
+    return array();
+}
+
+?>

@@ -17,10 +17,4 @@ if ($link == false) {
 
 mysql_select_db($dbname);
 
-function query_get($table, $where) {
-    $query = "SELECT * FROM $table WHERE $where";
-    $result = mysql_query($query);
-    return mysql_fetch_assoc($result);
-}
-
 ?>

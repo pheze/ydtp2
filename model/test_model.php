@@ -42,10 +42,32 @@ function test_filter() {
 		
 	assert(count($arr) != 0);
 }
+
+function test_save_delete() {			
+	$obj = new Arena();
+	
+	$obj->sieges = 5;
+	
+	$old_count = count(Arena::filter(""));
+	
+	$obj->save();
+	
+	assert(isset($obj->id));
+	
+	$obj->sieges = 7;
+	
+	$obj->save();
+	
+	$obj->delete();
+	
+	assert($old_count == count(Arena::filter("")));
+}
 	
 test_load();
 
 test_get();
 
 test_filter();
+
+test_save_delete();
 ?>

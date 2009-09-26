@@ -2,14 +2,10 @@
 
 require_once 'model.inc.php';
 
-class Achat {
-    public $utilisateur;
+class Arena {
+    public $nom;
 
-	public $match;
-	
-	public $qte;
-	
-	public $date;
+	public $sieges;
 
     public static function get($id) {
 		return parent::get(__CLASS__, $id);

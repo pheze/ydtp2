@@ -2,14 +2,14 @@
 
 require_once 'model.inc.php';
 
-class Achat {
+class Reservation {
     public $utilisateur;
 
 	public $match;
 	
 	public $qte;
 	
-	public $date;
+	public $expiration;
 
     public static function get($id) {
 		return parent::get(__CLASS__, $id);

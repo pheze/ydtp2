@@ -21,7 +21,7 @@ abstract class Model {
 	
 	// Return a model object matching the database row with the given id.
     public static function get($class, $id) {
-		$query = "SELECT * FROM " . $class . "s WHERE id = $id";
+		$query = "SELECT * FROM " . $class . "s WHERE id = $id;";
 	    $result = mysql_query($query);
 		$attr = mysql_fetch_assoc($result);
 	    return self::load($class, $attr);
@@ -29,7 +29,14 @@ abstract class Model {
 
 	// Return an array of model objects matching the given condition.
 	protected static function filter($class, $where) {
-		
+		$query = "SELECT * FROM " . $class . "s" . ($where == "" ? "":" WHERE $where");
+		$result = mysql_query($query);
+		$out = array();		
+		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)){
+			$out[] = self::load($class, $row);
+		}		
+		mysql_free_result($result);
+		return $out;
 	}
 	
 	// Save the model object to the associated database row.
@@ -47,44 +54,5 @@ abstract class Model {
 		return "&lt;model id=$this->id /&gt;";
 	}
 }
-
-// Run unit tests for the Model class.
-function test_model_class() {		
-	function test_load() {
-		class TestLoad extends Model {
-			public $foo;
-						
-			public static function load($attr) {
-				return parent::load(__CLASS__, $attr);
-			}
-		}
-		
-		$attr = array("foo" => "barbara");
-		
-		$obj = TestLoad::load($attr);
-		
-		assert($obj->foo == "barbara");
-	}
-	
-	function test_get() {
-		class Arena extends Model {
-			public $sieges;
-			
-			public static function get($attr) {
-				return parent::get(__CLASS__, $attr);
-			}
-		}
-				
-		$obj = Arena::get(1);
-				
-		assert($obj->sieges == 85);
-	}
-	
-	test_load();
-	
-	test_get();
-}
-
-test_model_class();
 
 ?>

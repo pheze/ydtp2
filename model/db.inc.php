@@ -1,9 +1,14 @@
 <?php
 
-$dbname = 'docouLOG4420';
-$dbhost = 'www.info.polymtl.ca';
-$dbuser = 'docouLOG4420';
-$dbpass = '3NfU5PF4';
+// $dbname = 'docouLOG4420';
+// $dbhost = 'www.info.polymtl.ca';
+// $dbuser = 'docouLOG4420';
+// $dbpass = '3NfU5PF4';
+
+$dbname = 'canadiens';
+$dbhost = '127.0.0.1';
+$dbuser = 'root';
+$dbpass = '';
 
 $link = mysql_connect($dbhost, $dbuser, $dbpass);
 if ($link == false) {

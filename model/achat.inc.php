@@ -2,7 +2,7 @@
 
 require_once 'model.inc.php';
 
-class Achat {
+class Achat extends Model {
     public $utilisateur;
 
 	public $match;

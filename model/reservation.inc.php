@@ -2,7 +2,7 @@
 
 require_once 'model.inc.php';
 
-class Reservation {
+class Reservation extends Model {
     public $utilisateur;
 
 	public $match;

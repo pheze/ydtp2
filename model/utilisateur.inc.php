@@ -2,7 +2,7 @@
 
 require_once 'model.inc.php';
 
-class Utilisateur {
+class Utilisateur extends Model {
     public $role;
 
 	public $utilisateur;

@@ -2,7 +2,7 @@
 
 require_once 'model.inc.php';
 
-class Match {
+class Match extends Model {
     public $description;
 
 	public $arena;

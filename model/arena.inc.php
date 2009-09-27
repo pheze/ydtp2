@@ -2,7 +2,7 @@
 
 require_once 'model.inc.php';
 
-class Arena {
+class Arena extends Model  {
     public $nom;
 
 	public $sieges;

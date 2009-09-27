@@ -35,7 +35,8 @@ function generate_vars($section, &$vars) {
         return;
     }
     
-    $_SESSION['userid'] = $id; 
+    $_SESSION['userid'] = $id;
+    $vars['userid'] = $id; 
     $vars['is_logged'] = true;
 }
 

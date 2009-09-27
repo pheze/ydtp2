@@ -32,10 +32,14 @@
 				<div class="menu">
 	                <ul>
 	                    <li><a href="index.php">Accueil</a></li>
-	                    <li><a href="index.php?section=inscription">Inscription</a></li>
-	                    <li><a href="index.php?section=matchs">Matchs</a></li>
+	                    ~ if (!$is_logged) { ~ 
+                            <li><a href="index.php?section=inscription">Inscription</a></li>
+                        ~ } ~
+	                    <li><a href="index.php?section=matchs">Matches</a></li>
                         <li><a href="index.php?section=panier">Panier</a></li>
-                        <li><a href="index.php?section=signout">Signout***</a></li>
+	                    ~ if ($is_logged) { ~ 
+                            <li><a href="index.php?section=signout">Signout***</a></li>
+                        ~ } ~
 	                </ul>
 				</div>
             </div>

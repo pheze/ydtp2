@@ -25,4 +25,8 @@ function is_admin() {
     return false;
 }
 
+function clear_deprecated_reserved_matches() {
+    echo 'I should clear deprecated already reserved matches now :-)';
+}
+
 ?>

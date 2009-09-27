@@ -1,2 +1,3 @@
 *.swp
 .DS_Store
+view/templates_compiled

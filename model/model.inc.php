@@ -21,16 +21,22 @@ abstract class Model {
 	
 	// Return a model object matching the database row with the given id.
     public static function get($class, $id) {
-		$query = "SELECT * FROM " . $class . "s WHERE id = $id;";
+		$query = "SELECT * FROM " . strtolower($class) . "s WHERE id = $id;";
 	    $result = mysql_query($query);
+		if (!$result) {
+			return $result;
+		}
 		$attr = mysql_fetch_assoc($result);
 	    return self::load($class, $attr);
     }
 
 	// Return an array of model objects matching the given condition.
 	protected static function filter($class, $where) {
-		$query = "SELECT * FROM " . $class . "s" . ($where == "" ? "":" WHERE $where");
+		$query = "SELECT * FROM " . strtolower($class) . "s" . ($where == "" ? "":" WHERE $where");
 		$result = mysql_query($query);
+		if (!$result) {
+			return $result;
+		}
 		$out = array();		
 		while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 			$out[] = self::load($class, $row);
@@ -42,7 +48,7 @@ abstract class Model {
 	// Save the model object to the associated database row.
 	public function save() {
 		if (isset($this->id)) {
-			$query = "UPDATE " . get_class($this) . "s SET ";
+			$query = "UPDATE " . strtolower(get_class($this)) . "s SET ";
 
 			foreach(get_object_vars($this) as $key => $val) {
 				if ($key == "id") {
@@ -64,7 +70,7 @@ abstract class Model {
 			mysql_query($query);
 		}
 		else {
-			$query = "INSERT INTO " . get_class($this) . "s ";
+			$query = "INSERT INTO " . strtolower(get_class($this)) . "s ";
 			$v = '';
 			$n = '';
 			foreach(get_object_vars($this) as $key=>$val) {
@@ -96,13 +102,13 @@ abstract class Model {
 		if (!isset($this->id)) {
 			return;
 		}
-		$query = "DELETE FROM " . get_class($this) . "s WHERE id = $this->id;";
+		$query = "DELETE FROM " . strtolower(get_class($this)) . "s WHERE id = $this->id;";
 	    $result = mysql_query($query);
 	}
 	
 	// Return a string representing this model object.
 	public function __tostring() {
-		return "&lt;model id=$this->id /&gt;";
+		return "&lt;model table=" . strtolower(get_class($this)) . " id=$this->id /&gt;";
 	}
 }
 

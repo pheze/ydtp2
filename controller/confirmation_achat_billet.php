@@ -6,7 +6,6 @@ function generate_vars($section, &$vars) {
         return;
     }    
 
-    // #todo: verification si tout est okblabla..
     $vars['match_id'] = $_GET['match_id'];
     $vars['nombre_billet'] = $_GET['nombre_billet'];
     $vars['ok'] = true;

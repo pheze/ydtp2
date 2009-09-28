@@ -1,9 +1,6 @@
 <?php 
 
-class Match {
-    public $id; 
-    public function Match($id) { $this->id = $id; }
-}
+require_once '../model/match.inc.php';
 
 function generate_vars($section, &$vars) {
 
@@ -11,9 +8,7 @@ function generate_vars($section, &$vars) {
         return;
     }
 
-    //$match = Match.find('id = ' . $_GET['id'])
-    $match = new Match($_GET['id']);
-    $vars['match_id'] = $match->id;
+    $vars['match'] = Match::get($_GET['id']);
 }
 
 ?>

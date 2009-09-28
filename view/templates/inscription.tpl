@@ -183,6 +183,13 @@
             <input type="radio" id="masculin" name="sexe" /><label for="masculin">Masculin</label>
             <input type="radio" id="feminin" name="sexe" /><label for="feminin">Féminin</label>
         </span>
+        <span>
+            <label class="row">Thème de la page</label>
+            <select id="theme" name="theme">
+                <option>Standard</option>
+                <option>Foncé</option>
+            </select>
+        </span>
         <span><label for="accepte" class="row">Termes</label><input type="checkbox" id="accepte" name="accepte" /><label>J'accepte les termes de la license</label></span>
     </fieldset>
     <p><input type="submit" value="J’accepte" class="button"/><input type="reset" value="Réinitialiser" class="button"/></p>

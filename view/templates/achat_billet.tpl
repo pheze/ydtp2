@@ -1,6 +1,11 @@
 ~:extend('base')~
 ~[content]~
-    TODO Achat effectue avec success :) <br>
-        <a href="index.php?section=panier">Voir le panier d'achat</a>
+        ~ if (!$ok) { ~
+            Une erreur s'est produite lors de l'achat des billets. :( 
+        ~ } else { ~
+            <br>Vos billets sont achetés. 
+        ~ } ~
+
+        <br><br>
         <a href="index.php?section=matchs">Retour aux matchs</a>
 ~[/content]~

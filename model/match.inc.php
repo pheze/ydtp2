@@ -1,6 +1,7 @@
 <?php
 
 require_once 'model.inc.php';
+require_once 'arena.inc.php';
 
 class Match extends Model {
     public $description;
@@ -19,7 +20,11 @@ class Match extends Model {
 	
 	public static function filter($where) {
 		return parent::filter(__CLASS__, $where);
-	}
+    }
+
+    public function getArena() {
+        return Arena::get($this->arena);
+    }
 }
 
 ?>

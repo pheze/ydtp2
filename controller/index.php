@@ -2,24 +2,40 @@
 
 include '../lib/util.php';
 include('../lib/source/serpent.class.php');
+require_once '../model/utilisateur.inc.php';
+
 
 clear_deprecated_reserved_matches();
 
 
 session_start();
 
-$sections = array('accueil', 'inscription', 'login', 'matchs', 'panier', 'achat', 'match_detail', 'signout', 'achat_billet', 'confirmation_achat_billet');
+$sections = array('accueil', 'inscription', 'login', 'matchs', 'panier', 'achat', 'match_detail', 'signout', 'reservation_billet', 'confirmation_achat_billet', 'achat_billet', 'configuration');
+
 $section = get($_GET, 'section', 'accueil');
+if ($section == 'accueil') {
+    $section = get($_POST, 'section', 'accueil');
+}
 
 if (!in_array($section, $sections)) {
     $section = 'unknown';
 }
 
 
+
 $vars = array();
 $vars['userid'] = get_auth();
 $vars['isadmin'] = is_admin();
 $vars['is_logged'] = ($vars['userid'] >= 0);
+$vars['theme'] = 'standard.css';
+
+if ($vars['is_logged']) {
+    $user = Utilisateur::get($vars['userid']);
+    if ($user->theme == 'Dark') {
+        $vars['theme'] = 'dark.css';
+    }
+}
+
 
 include($section . '.php');
 generate_vars($section, $vars); 

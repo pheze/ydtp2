@@ -5,6 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <title>Canadiens jusqu'au bout du monde</title>
         <link rel="stylesheet" type="text/css" href="/view/css/master.css" />
+        <link rel="stylesheet" type="text/css" href="/view/css/~~$theme~" />
     </head>
     <body>
         <div class="wrapper">
@@ -38,9 +39,15 @@
 	                    <li><a href="index.php?section=matchs">Matches</a></li>
                         <li><a href="index.php?section=panier">Panier</a></li>
 	                    ~ if ($is_logged) { ~ 
+                            <li><a href="index.php?section=achat">Achats</a></li>
+                        ~ } ~
+	                    ~ if ($is_logged) { ~ 
+                            <li><a href="index.php?section=configuration">Config</a></li>
+                        ~ } ~
+		                    ~ if ($is_logged) { ~ 
                             <li><a href="index.php?section=signout">Signout***</a></li>
                         ~ } ~
-	                </ul>
+		                </ul>
 				</div>
             </div>
             <div class="content index-content">

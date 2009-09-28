@@ -1,6 +1,6 @@
 <?php 
 
-function generate_vars($section, $vars) {
+function generate_vars($section, &$vars) {
     session_destroy();
     $_SESSION = array();
     $vars['userid'] = -1;

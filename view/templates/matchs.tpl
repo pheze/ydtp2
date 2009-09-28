@@ -1,20 +1,27 @@
 ~:extend('base')~
 ~[content]~
-~ if (empty($matchs)) { ~
+~ if (empty($matches)) { ~
  Il n'y a aucun match.
 ~ } else { ~
- <table>
-
-~ $color_counter = 0; ~
-~ $colors = array(1234,5678); ~
-~ foreach ($matchs as $x) { ~
+ <table class="matches">
     <tr>
+        <td>Description</td>
+        <td>Date</td>
+        <td>Arena</td>
+        <td>Prix</td>
+        <td>Places</td>
+    </tr>
+~ $color_counter = 0; ~
+~ $colors = array('dark','light'); ~
+~ foreach ($matches as $x) { ~
+    <tr class='~~$colors[$color_counter % 2]~'>
         <td>
-            ~~$colors[$color_counter % 2]~
+            <a href="index.php?section=match_detail&id=~~$x->id~">~~$x->description~</a>
         </td>
-        <td>
-            <a href="index.php?section=match_detail&id=~~$x->id~">~~$x->id~</a>
-        </td>
+        <td>~~$x->date~</td>
+        <td>~~$x->getArena()->nom~</td>
+        <td>~~$x->prix~</td>
+        <td>~~$x->places~</td>
     </tr>
     ~$color_counter++;~
 ~ } ~

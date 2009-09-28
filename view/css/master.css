@@ -102,6 +102,25 @@ h2 {
 .content.index-content {
   background: url("../images/white_background.jpg") no-repeat;
 }
+
+.content.index-content table {
+    border: 1px solid black;
+}
+
+.content.index-content table td a {
+    text-decoration:underline;
+    color: black;
+}
+
+.content.index-content table tr.light {
+    background-color: white;
+}
+
+.content.index-content table tr.dark {
+    background-color: #ababab;
+}
+
+
 .right{
     float: left;
     text-align: center;

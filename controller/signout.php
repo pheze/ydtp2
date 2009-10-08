@@ -5,6 +5,7 @@ function generate_vars($section, &$vars) {
     $_SESSION = array();
     $vars['userid'] = -1;
     $vars['is_logged'] = false;
+    $vars['is_admin'] = false;
 }
 
 ?>

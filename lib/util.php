@@ -22,7 +22,7 @@ function is_admin() {
     if (!isset($_SESSION['userid'])) {
         return false;
     }
-
+    
     $user = Utilisateur::get($_SESSION['userid']);
     if ($user == null || $user->role != 2) { 
         return false; 

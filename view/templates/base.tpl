@@ -53,7 +53,10 @@
                             <li><a href="index.php?section=configuration">Config</a></li>
                         ~ } ~
 		                    ~ if ($is_logged && $is_admin) { ~ 
-                            <li><a href="index.php?section=admin">Admin</a></li>
+                            <li><a href="index.php?section=admin_arenas">AdminArena</a></li>
+                        ~ } ~
+		                    ~ if ($is_logged && $is_admin) { ~ 
+                            <li><a href="index.php?section=admin_matches">AdminMatches</a></li>
                         ~ } ~
 		                </ul>
 				</div>

@@ -10,7 +10,7 @@ clear_deprecated_reserved_matches();
 
 session_start();
 
-$sections = array('accueil', 'inscription', 'login', 'matchs', 'panier', 'achat', 'match_detail', 'signout', 'reservation_billet', 'confirmation_achat_billet', 'achat_billet', 'configuration');
+$sections = array('accueil', 'inscription', 'login', 'matchs', 'panier', 'achat', 'match_detail', 'signout', 'reservation_billet', 'confirmation_achat_billet', 'achat_billet', 'configuration', 'admin');
 
 $section = get($_GET, 'section', 'accueil');
 if ($section == 'accueil') {
@@ -25,9 +25,13 @@ if (!in_array($section, $sections)) {
 
 $vars = array();
 $vars['userid'] = get_auth();
-$vars['isadmin'] = is_admin();
+$vars['is_admin'] = is_admin();
 $vars['is_logged'] = ($vars['userid'] >= 0);
 $vars['theme'] = 'standard.css';
+
+include($section . '.php');
+generate_vars($section, $vars); 
+$vars['section_name'] = ucfirst(str_replace('_', ' ', $section));
 
 if ($vars['is_logged']) {
     $user = Utilisateur::get($vars['userid']);
@@ -35,15 +39,6 @@ if ($vars['is_logged']) {
         $vars['theme'] = 'dark.css';
     }
 }
-
-
-include($section . '.php');
-generate_vars($section, $vars); 
-$vars['section_name'] = ucfirst(str_replace('_', ' ', $section));
-
-//foreach ($vars as $x => $y) {
-//    echo $x . '->' . $y . '<br>';
-//}
 
 
 $serpent = new serpent();

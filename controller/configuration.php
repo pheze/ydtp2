@@ -3,7 +3,7 @@
 require_once '../model/utilisateur.inc.php';
 
 function updateIfNecessary(&$user, $what, $field) {
-    if (isset($_POST[$what]) && $_POST[$what] != $user->$field) {
+    if (isset($_POST[$what]) && !empty($_POST[$what]) && $_POST[$what] != $user->$field) {
         $user->$field = $_POST[$what];
         return 1;
     }

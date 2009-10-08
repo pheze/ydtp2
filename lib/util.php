@@ -1,5 +1,7 @@
 <?php
 
+require_once '../model/utilisateur.inc.php';
+
 function get($array, $key, $default) {
     if (isset($array[$key])) { 
         return $array[$key];
@@ -21,8 +23,12 @@ function is_admin() {
         return false;
     }
 
-    // todo, check if admin
-    return false;
+    $user = Utilisateur::get($_SESSION['userid']);
+    if ($user == null || $user->role != 2) { 
+        return false; 
+    }
+        
+    return true;
 }
 
 function clear_deprecated_reserved_matches() {

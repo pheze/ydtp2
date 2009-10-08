@@ -1,16 +1,21 @@
 <?php 
 
+require_once '../model/utilisateur.inc.php';
+require_once '../lib/util.php';
 
 function check_login($username, $password) {
-    // $membres = Membre.get('username = ' . $username);
-    $membres = array(1);
+    // select * from utilisateur where utilisateur = admin doesn't work..
+    // it needs to be:
+    // select * from utilisateur where utilisateur = "admin" :-) 
+    $username = '"' . $username . '"';
+    $membres = Utilisateur::filter('utilisateur = ' . $username);
 
-    if (empty($membres)) {
+    if (empty($membres) || $membres[0]->motdepasse != $password) {
         return -1;
     } else {
-        //return $membres[0].id;
-        return 1;
+        return $membres[0]->id;
     }
+
 }
 
 function generate_vars($section, &$vars) {
@@ -38,6 +43,7 @@ function generate_vars($section, &$vars) {
     $_SESSION['userid'] = $id;
     $vars['userid'] = $id; 
     $vars['is_logged'] = true;
+    $vars['is_admin'] = is_admin();    
 }
 
 ?>

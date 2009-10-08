@@ -1,9 +1,23 @@
 ~:extend('base')~
 ~[content]~
 
-~ if ($is_logged) { ~
+~ if ($is_logged && !isset($contains_errors)) { ~
     Vous êtes déjà identifié en tant que membre :)
 ~ } else { ~
+    ~ if ($page_type != 'normal' && !$contains_errors) { ~
+        Vous êtes maintenant inscris.
+    ~ } else { ~
+        <p class='inscription_error'>
+        ~ if ($contains_errors) { ~
+            Il y a des erreurs dans le formulaire : <br>
+            <ul>
+            ~foreach ($errors as $e) { ~
+                <li>~~$e~</li>
+            ~ } ~
+            </ul>
+        </p>
+        ~ } ~
+
 <form id="inscription" action="" method="post">
     <fieldset class="form">
         <legend>Informations d'identification</legend>
@@ -51,18 +65,18 @@
                 <option>31</option>
             </select>
             <select id="mois" name="mois">
-                <option>Janvier</option>
-                <option>Février</option>
-                <option>Mars</option>
-                <option>Avril</option>
-                <option>Mai</option>
-                <option>Juin</option>
-                <option>Juillet</option>
-                <option>Août</option>
-                <option>Septembre</option>
-                <option>Octobre</option>
-                <option>Novembre</option>
-                <option>Décembre</option>
+                <option value="1">Janvier</option>
+                <option value="2">Février</option>
+                <option value="3">Mars</option>
+                <option value="4">Avril</option>
+                <option value="5">Mai</option>
+                <option value="6">Juin</option>
+                <option value="7">Juillet</option>
+                <option value="8">Août</option>
+                <option value="9">Septembre</option>
+                <option value="10">Octobre</option>
+                <option value="11">Novembre</option>
+                <option value="12">Décembre</option>
             </select>
             <select id="annee" name="annee">
                 <option>2010</option>
@@ -180,8 +194,8 @@
         </span>
         <span>
             <label class="row">Sexe</label>
-            <input type="radio" id="masculin" name="sexe" /><label for="masculin">Masculin</label>
-            <input type="radio" id="feminin" name="sexe" /><label for="feminin">Féminin</label>
+            <input type="radio" id="masculin" value = "m" name="sexe" /><label for="masculin">Masculin</label>
+            <input type="radio" id="feminin" value="f" name="sexe" /><label for="feminin">Féminin</label>
         </span>
         <span>
             <label class="row">Thème de la page</label>
@@ -194,5 +208,6 @@
     </fieldset>
     <p><input type="submit" value="J’accepte" class="button"/><input type="reset" value="Réinitialiser" class="button"/></p>
 </form>
+ ~ } ~
 ~ } ~
 ~[/content]~

@@ -2,7 +2,7 @@
 ~[content]~
 
 ~ if (!$is_logged) { ~
-    Vous êtes déjà identifié en tant que membre :)
+    Vous devez être membre pour accéder à cette page.
 ~ } else { ~
 <form id="inscription" action="index.php" method="post">
     <input type="hidden" name="section" value="configuration" />

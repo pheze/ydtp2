@@ -11,6 +11,7 @@
         <div class="wrapper">
             <div class="header">
                 <div class="header-logo"><img src="/view/images/logo.jpg" alt="logo"/></div>
+                ~ if (!$is_logged) { ~
                 <div class="header-login">
                     <div class="header-login-form">
                         <form id="login" action="index.php?section=login" method="post">
@@ -28,6 +29,11 @@
                         </form>
                     </div>
                 </div>
+                ~ } else { ~
+                    <div class="header-login">
+                        <a href="index.php?section=signout">signout a vraiment mettre plus beau lol</a>
+                    </div>
+                ~ } ~
             </div>
             <div class="left">
 				<div class="menu">
@@ -37,15 +43,17 @@
                             <li><a href="index.php?section=inscription">Inscription</a></li>
                         ~ } ~
 	                    <li><a href="index.php?section=matchs">Matches</a></li>
+                        ~ if ($is_logged) { ~
                         <li><a href="index.php?section=panier">Panier</a></li>
+                        ~ } ~
 	                    ~ if ($is_logged) { ~ 
                             <li><a href="index.php?section=achat">Achats</a></li>
                         ~ } ~
 	                    ~ if ($is_logged) { ~ 
                             <li><a href="index.php?section=configuration">Config</a></li>
                         ~ } ~
-		                    ~ if ($is_logged) { ~ 
-                            <li><a href="index.php?section=signout">Signout***</a></li>
+		                    ~ if ($is_logged && $is_admin) { ~ 
+                            <li><a href="index.php?section=admin">Admin</a></li>
                         ~ } ~
 		                </ul>
 				</div>
@@ -57,7 +65,7 @@
                 --debug--<br>
                 UserID: ~~$userid~<br>
                 Admin: 
-                ~ if ($isadmin) {~
+                ~ if ($is_admin) {~
                 oui
                 ~ } else {~
                 non

@@ -8,28 +8,28 @@ function generate_vars($section, &$vars) {
         return; 
     } 
     
-
+    //echo '--------<br>';
+    //foreach ($_POST as $x => $y) {
+    //    echo $x . ' -> ' . $y . '<br>';
+    // }
+    //echo '-------<br>';
+    
+    
     $arenas = Arena::filter('');
     $vars['arenas'] = $arenas; 
-    
-    if (isset($_POST['erase'])) {
-        $number = $_POST['erase'];
-        if ($number < 0 || $number >= count($arenas)) {
-            return;
-        } else {
-            $arenas[$number]->delete();
-            $arenas = Arena::filter('');
-            $vars['arenas'] = $arenas; 
-        }
-    }
 
-
-    if (isset($_POST['nom1'])) {
+    if (isset($_POST['nom0'])) {
         for ($i = 0; $i < count($arenas); $i++) {
             $arena = $arenas[$i];
 
+            if (isset($_POST['delete' . $i])) {
+                $arena->delete();
+                continue;
+            }
+
             if ($arena->nom != $_POST['nom' . $i] || 
-                $arena->sieges != $_POST['sieges' . $i]) {
+                $arena->sieges != $_POST['sieges' . $i]) 
+            {
                 $arena->nom = $_POST['nom' . $i];
                 $arena->sieges = $_POST['sieges' . $i];
                 $arena->save();

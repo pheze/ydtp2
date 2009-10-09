@@ -12,23 +12,18 @@ Vous n'êtes pas administrateur.
           <th>no</th>
           <th>date</th>
           <th>description</th>
-          <th>prix</th>
+          <th size="5">prix</th>
           <th>arena</th> 
+          <th>effacé</th>
         </tr>
      ~ foreach ($matches as $match) { ~
        <tr>
             <td>~~$counter~</td>
-            <td><input type="text" name="date~~$counter~" value="~~$match->date~" /></td>
-            <td><input type="text" name="description~~$counter~" value="~~$match->description~" /></td>
+            <td><input type="text" size="10" name="date~~$counter~" value="~~$match->date~" /></td>
+            <td><input type="text" size="20" name="description~~$counter~" value="~~$match->description~" /></td>
             <td><input type="text" size="5" name="prix~~$counter~" value="~~$match->prix~" /></td>
             <td><input type="text" size="5" name="arena~~$counter~" value="~~$match->arena~" /></td>
-            <td>
-                <form action="index.php" method="post">
-                    <input type="hidden" name="section" value="admin_matches" />
-                    <input type="hidden" name="erase" value="~~$counter~"/>
-                    <input type="submit" value="X" />
-                </form>
-            </td>
+            <td><input type="checkbox" name="delete~~$counter~" /></td>
         </tr>
 
         ~ $counter++; ~
@@ -36,12 +31,12 @@ Vous n'êtes pas administrateur.
 
       <tr><td /><td /><td /></tr>
       <tr>
-           <td></td>
            <input type="hidden" name="section" value="admin_matches" />
-           <td><input type="text" name="date-nouveau" value="" /></td>
-           <td><input type="text" name="description-nouveau" value="" /></td>
-           <td><input type="text" name="prix-nouveau" value="" /></td>
-           <td><input type="text" name="arena-nouveau" value="" /></td>
+           <td></td>
+           <td><input type="text" size="10" name="date-nouveau" value="" /></td>
+           <td><input type="text" size="20" name="description-nouveau" value="" /></td>
+           <td><input type="text" size="5" name="prix-nouveau" value="" /></td>
+           <td><input type="text" size="5" name="arena-nouveau" value="" /></td>
            <td></td>
        </tr>
     </table>

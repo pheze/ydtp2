@@ -13,21 +13,16 @@ function generate_vars($section, &$vars) {
     $matches = Match::filter('');
     $vars['matches'] = $matches; 
     
-    if (isset($_POST['erase'])) {
-        $number = $_POST['erase'];
-        if ($number < 0 || $number >= count($matches)) {
-            return;
-        } else {
-            $matches[$number]->delete();
-            $matches = Match::filter('');
-            $vars['matches'] = $matches; 
-        }
-    }
-
-
-    if (isset($_POST['description1'])) {
+    if (isset($_POST['description0'])) {
         for ($i = 0; $i < count($matches); $i++) {
             $match = $matches[$i];
+
+
+            if (isset($_POST['delete' . $i])) {
+                $match->delete();
+                continue;
+            }
+
 
             if ($match->description != $_POST['description' . $i] || 
                 $match->date != $_POST['date' . $i] ||  

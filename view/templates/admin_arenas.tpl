@@ -4,6 +4,7 @@
 Vous n'êtes pas administrateur.
 ~ } else { ~
     Arenas:<br>
+
     <table>
 
     <form action="index.php" method="post">
@@ -19,13 +20,7 @@ Vous n'êtes pas administrateur.
             <td>~~$counter~</td>
             <td><input type="text" name="nom~~$counter~" value="~~$arena->nom~" /></td>
             <td><input type="text" size="5" name="sieges~~$counter~" value="~~$arena->sieges~" /></td>
-            <td>
-                <form action="index.php" method="post">
-                    <input type="hidden" name="section" value="admin_arenas" />
-                    <input type="hidden" name="erase" value="~~$counter~"/>
-                    <input type="submit" value="X" />
-                </form>
-            </td>
+            <td><input type="checkbox" name="delete~~$counter~" /></td>
         </tr>
 
         ~ $counter++; ~
@@ -33,7 +28,7 @@ Vous n'êtes pas administrateur.
 
       <tr><td /><td /><td /></tr>
       <tr>
-           <td></td>
+           <td>Ajout</td>
            <input type="hidden" name="section" value="admin_arenas" />
            <td><input type="text" name="nom-nouveau" value="" /></td>
            <td><input type="text" name="sieges-nouveau" size="5" value="" /></td>

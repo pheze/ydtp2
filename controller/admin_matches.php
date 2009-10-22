@@ -9,7 +9,7 @@ function generate_vars($section, &$vars) {
         return; 
     } 
 
-    $matches = Match::filter('');
+    $matches = Match::find_all();
     $vars['matches'] = $matches;
     $vars['arenas'] = Arena::filter('');
     
@@ -58,7 +58,7 @@ function generate_vars($section, &$vars) {
 
     }
 
-    $matches = Match::filter('');
+    $matches = Match::find_all();
     $vars['matches'] = $matches; 
 }
 

@@ -7,8 +7,8 @@
 
 $dbname = 'canadiens';
 $dbhost = '127.0.0.1';
-$dbuser = 'pheze';
-$dbpass = '123456';
+$dbuser = 'root';
+$dbpass = '';
 
 $link = mysql_connect($dbhost, $dbuser, $dbpass);
 if ($link == false) {

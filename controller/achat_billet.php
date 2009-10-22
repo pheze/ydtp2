@@ -11,7 +11,7 @@ function generate_vars($section, &$vars) {
         return;
     }
 
-    $reservations = Reservation::filter('utilisateur = ' . $vars['userid']);
+    $reservations = Reservation::filter_by_user($vars['userid']);
     foreach ($reservations as $reservation) {
         $achat = new Achat(); 
         $achat->utilisateur = $reservation->utilisateur;

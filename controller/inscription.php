@@ -76,7 +76,7 @@ function generate_vars($section, &$vars) {
         $errors['accepte'] = "La licence n'a pas été acceptée.";
     }
 
-    $utilisateurs = Utilisateur::filter('utilisateur = "' . $username . '"');
+    $utilisateurs = Utilisateur::filter_by_username($username);
     if (!empty($utilisateurs)) {
         $errors['utilisateur'] = 'Cet utilisateur existe déjà.';
     }

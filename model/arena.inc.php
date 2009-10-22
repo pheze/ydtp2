@@ -14,6 +14,10 @@ class Arena extends Model  {
 	public static function filter($where) {
 		return parent::filter(__CLASS__, $where);
 	}
+	
+	public static function find_all() {
+		return self::filter('');
+	}
 }
 
 ?>

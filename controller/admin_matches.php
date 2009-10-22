@@ -10,7 +10,7 @@ function generate_vars($section, &$vars) {
     } 
     
 
-    $matches = Match::filter('');
+    $matches = Match::find_all();
     $vars['matches'] = $matches; 
     
     if (isset($_POST['description0'])) {
@@ -53,7 +53,7 @@ function generate_vars($section, &$vars) {
         $match->save();
     }
 
-    $matches = Match::filter('');
+    $matches = Match::find_all();
     $vars['matches'] = $matches; 
 }
 

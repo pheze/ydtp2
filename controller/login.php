@@ -8,7 +8,7 @@ function check_login($username, $password) {
     // it needs to be:
     // select * from utilisateur where utilisateur = "admin" :-) 
     $username = '"' . $username . '"';
-    $membres = Utilisateur::filter('utilisateur = ' . $username);
+    $membres = Utilisateur::filter_by_username($username);
 
     if (empty($membres) || $membres[0]->motdepasse != $password) {
         return -1;

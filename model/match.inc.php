@@ -25,6 +25,10 @@ class Match extends Model {
     public function getArena() {
         return Arena::get($this->arena);
     }
+
+	public static function find_all() {
+		return self::filter('');
+	}
 }
 
 ?>

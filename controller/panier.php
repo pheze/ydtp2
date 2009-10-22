@@ -17,7 +17,7 @@ function generate_vars($section, &$vars) {
             $reservation->delete();
         }
     } else if (isset($_GET['tout_effacer'])) {
-        $reservations = Reservation::filter('utilisateur = ' . $vars['userid']);
+        $reservations = Reservation::filter_by_user($vars['userid']);
         foreach ($reservations as $reservation) {
             $match = $reservation->get_match();
             $match->places += $reservation->qte;
@@ -26,7 +26,7 @@ function generate_vars($section, &$vars) {
         }
     }
 
-    $reservations = Reservation::filter('utilisateur = ' . $vars['userid']);
+    $reservations = Reservation::filter_by_user($vars['userid']);
     $vars['reservations'] = $reservations;
 }
 

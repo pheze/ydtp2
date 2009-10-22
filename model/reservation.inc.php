@@ -23,6 +23,10 @@ class Reservation extends Model {
     public function get_match() {
         return Match::get($this->match);
     }
+
+	public static function filter_by_user($id) {
+		return self::filter('utilisateur = ' . $id);
+	}
 }
 
 ?>

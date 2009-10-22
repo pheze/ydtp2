@@ -18,6 +18,10 @@ class Achat extends Model {
 	public static function filter($where) {
 		return parent::filter(__CLASS__, $where);
 	}
+	
+	public static function filter_by_user($id) {
+		return self::filter('utilisateur = ' . $id);
+	}
 }
 
 ?>

@@ -15,7 +15,7 @@ function generate_vars($section, &$vars) {
     //echo '-------<br>';
     
     
-    $arenas = Arena::filter('');
+    $arenas = Arena::find_all();
     $vars['arenas'] = $arenas; 
 
     if (isset($_POST['nom0'])) {
@@ -45,7 +45,7 @@ function generate_vars($section, &$vars) {
         $arena->save();
     }
 
-    $arenas = Arena::filter('');
+    $arenas = Arena::find_all();
     $vars['arenas'] = $arenas; 
 }
 

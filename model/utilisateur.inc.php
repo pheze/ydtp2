@@ -32,6 +32,10 @@ class Utilisateur extends Model {
 	public static function filter($where) {
 		return parent::filter(__CLASS__, $where);
 	}
+	
+	public static function filter_by_username($username) {
+		return self::filter('utilisateur = "' . $username . '"');
+	}
 }
 
 ?>

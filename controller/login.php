@@ -4,10 +4,6 @@ require_once '../model/utilisateur.inc.php';
 require_once '../lib/util.php';
 
 function check_login($username, $password) {
-    // select * from utilisateur where utilisateur = admin doesn't work..
-    // it needs to be:
-    // select * from utilisateur where utilisateur = "admin" :-) 
-    $username = '"' . $username . '"';
     $membres = Utilisateur::filter_by_username($username);
 
     if (empty($membres) || $membres[0]->motdepasse != $password) {
@@ -32,18 +28,23 @@ function generate_vars($section, &$vars) {
         return;
     }
 
-    //echo "username: " . $username . '<br>'; 
-    //echo "password: " . $password . '<br>';
+
+    // echo "username: " . $username . '<br>'; 
+    // echo "password: " . $password . '<br>';
 
     $id = check_login($username, $password);
+    
     if ($id == -1) {
         return;
     }
-    
+
     $_SESSION['userid'] = $id;
     $vars['userid'] = $id; 
     $vars['is_logged'] = true;
     $vars['is_admin'] = is_admin();    
+    
+    echo is_admin();
+
 }
 
 ?>

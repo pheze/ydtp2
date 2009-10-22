@@ -1,0 +1,19 @@
+-- Controller
+-(!) Faire en sorte que le index.html soit dans le premier niveau pour pas voir les repertoires.
+- Faire une listbox pour la liste des arenas...
+- Remplir les fields dans la table de Historique d'achats et panier
+- Historique achat.. marquer rien s'il n'y a rien plutot que blabla
+-(!) inscription theme marche pas.. mais dans config il marche.
+- mettre le signout en haut a droite beau
+-(!) mettre le nombre de nombre de siege lors de la creation d'un match (plutot que 0)
+-(!) oter tous signes de debug
+- (?) effacer le (Etes vous sur de vouloir ajouter ces billets au panier..)
+-(!) faire le "deprecated session remove match shit"
+- modifier les boutons a gauche pour le admin match et admin arena.. un seul admin? 
+- Afficher Aucun element lorsqu'il n'y a rien dans le panier.
+- Mettre le tout effacer, achat de bille tdans le panier plus beau.. (et moins apte a peser sur le mauvais bouton)
+
+-- Model 
+-(?) Eviter les filter('id = x and blabla.. pour la securite')
+
+

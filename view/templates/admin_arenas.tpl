@@ -3,6 +3,7 @@
 ~ if (!$is_logged || !$is_admin) { ~
 Vous n'êtes pas administrateur.
 ~ } else { ~
+    <p><a href="index.php?section=admin">Back to admin</a></p>
     Arenas:<br>
 
     <table>
@@ -10,14 +11,12 @@ Vous n'êtes pas administrateur.
     <form action="index.php" method="post">
     ~ $counter = 0; ~
        <tr>
-          <th>no</th>
           <th>nom</th>
           <th>sieges</th>
           <th>effacer</th>
         </tr>
      ~ foreach ($arenas as $arena) { ~
        <tr>
-            <td>~~$counter~</td>
             <td><input type="text" name="nom~~$counter~" value="~~$arena->nom~" /></td>
             <td><input type="text" size="5" name="sieges~~$counter~" value="~~$arena->sieges~" /></td>
             <td><input type="checkbox" name="delete~~$counter~" /></td>
@@ -28,7 +27,6 @@ Vous n'êtes pas administrateur.
 
       <tr><td /><td /><td /></tr>
       <tr>
-           <td>Ajout</td>
            <input type="hidden" name="section" value="admin_arenas" />
            <td><input type="text" name="nom-nouveau" value="" /></td>
            <td><input type="text" name="sieges-nouveau" size="5" value="" /></td>

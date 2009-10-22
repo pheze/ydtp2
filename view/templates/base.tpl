@@ -31,7 +31,7 @@
                 </div>
                 ~ } else { ~
                     <div class="header-login">
-                        <a href="index.php?section=signout">signout a vraiment mettre plus beau lol</a>
+                        <a href="index.php?section=signout">Signout</a>
                     </div>
                 ~ } ~
             </div>
@@ -53,10 +53,7 @@
                             <li><a href="index.php?section=configuration">Config</a></li>
                         ~ } ~
 		                    ~ if ($is_logged && $is_admin) { ~ 
-                            <li><a href="index.php?section=admin_arenas">AdminArena</a></li>
-                        ~ } ~
-		                    ~ if ($is_logged && $is_admin) { ~ 
-                            <li><a href="index.php?section=admin_matches">AdminMatches</a></li>
+                            <li><a href="index.php?section=admin">Admin</a></li>
                         ~ } ~
 		                </ul>
 				</div>
@@ -65,24 +62,6 @@
                 ~[header]~
                 <h2>~~$section_name~</h2> 
                 ~[/header]~
-                --debug--<br>
-                UserID: ~~$userid~<br>
-                Admin: 
-                ~ if ($is_admin) {~
-                oui
-                ~ } else {~
-                non
-                ~}~
-                <br>
-                Logged:
-                ~ if ($is_logged) {~
-                oui
-                ~ } else { ~
-                non
-                ~ } ~<br>
-                --debug--
-                <br><br>
-
                 ~[content]~
                 ~[/content]~
             </div>

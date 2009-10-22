@@ -2,15 +2,16 @@
 ~[content]~
 ~ if (!$is_logged) { ~
     Vous devez vous identifier afin d'utiliser le panier.
-~ } else { ~
+~ } else if (empty($reservations)) { ~
+    Il n'y a rien dans le panier.
+    ~ } else { ~
 
     <table class="reservations">
     <tr>
         <td>Effacer</td>
         <td>Description</td>
         <td>Quantite</td>
-        <td>xx</td>
-        <td>xx</td>
+        <td>Date</td>
     </tr>
 ~ $color_counter = 0; ~
 ~ $colors = array('dark','light'); ~
@@ -25,8 +26,7 @@
       </td>
       <td>~~$x->get_match()->description~</td>
       <td>~~$x->qte~</td> 
-      <td>..</td> 
-      <td>..<td>
+      <td>~~$x->get_match()->date~</td> 
     </tr>
     ~ } ~
    </table>

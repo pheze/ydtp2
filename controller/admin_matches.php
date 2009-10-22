@@ -8,10 +8,10 @@ function generate_vars($section, &$vars) {
     if (!$vars['is_logged'] || !$vars['is_admin']) { 
         return; 
     } 
-    
 
     $matches = Match::filter('');
-    $vars['matches'] = $matches; 
+    $vars['matches'] = $matches;
+    $vars['arenas'] = Arena::filter('');
     
     if (isset($_POST['description0'])) {
         for ($i = 0; $i < count($matches); $i++) {
@@ -50,7 +50,12 @@ function generate_vars($section, &$vars) {
         $match->date = $_POST['date-nouveau'];
         $match->arena = $_POST['arena-nouveau'];
         $match->prix = $_POST['prix-nouveau'];
+
+        $arena = Arena::get($match->arena);
+        $match->places = $arena->sieges;
+
         $match->save();
+
     }
 
     $matches = Match::filter('');

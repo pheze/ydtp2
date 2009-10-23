@@ -31,7 +31,7 @@ function generate_vars($section, &$vars) {
     $reservation->utilisateur = $vars['userid'];
     $reservation->match_id = $match->id;
     $reservation->qte = $nombre_billet;
-    $reservation->expiration = date('Y-m-d H:i:s');
+    $reservation->expiration = 'now()';
     $reservation->save();
 
     $vars['ok'] = true;

@@ -16,7 +16,7 @@
         ~ foreach ($achats as $achat) { ~
             <tr>
                 <td>~~$achat->get_match()->description~</td>
-                <td>~~$achat->date~</td>
+                <td>~~$achat->get_match()->date~</td>
                 <td>~~$achat->qte~</td>
             </tr>
         ~ } ~

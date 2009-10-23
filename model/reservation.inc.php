@@ -26,7 +26,11 @@ class Reservation extends Model {
 
 	public static function filter_by_user($id) {
 		return self::filter('utilisateur = ' . $id);
-	}
+    }
+
+    public static function find_all() {
+        return self::filter('');
+    }
 }
 
 ?>

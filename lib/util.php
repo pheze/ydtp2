@@ -1,6 +1,9 @@
 <?php
 
 require_once '../model/utilisateur.inc.php';
+require_once '../model/reservation.inc.php';
+require_once '../model/match.inc.php';
+
 
 function get($array, $key, $default) {
     if (isset($array[$key])) { 
@@ -31,8 +34,26 @@ function is_admin() {
     return true;
 }
 
+function ajust_ticket_and_delete($reservation) {
+    $match = Match::get($reservation->match_id);
+    $new_places = $match->places + $reservation->qte;
+    $match->places = $new_places;
+    $match->save();
+    $reservation->delete();
+}
+
+
 function clear_deprecated_reserved_matches() {
-    //todo
+    $MAX_TIME = 60 * 1; // 1 minute TODO TOCHANGE
+
+    foreach (Reservation::find_all() as $reservation) {
+        $diff = time() - strtotime($reservation->expiration);
+
+        if ($diff > $MAX_TIME) {
+            ajust_ticket_and_delete($reservation);
+        }
+
+    }   
 }
 
 

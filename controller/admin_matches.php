@@ -1,7 +1,7 @@
 <?php 
 
-require '../model/arena.inc.php';
-require '../model/match.inc.php';
+require_once '../model/arena.inc.php';
+require_once '../model/match.inc.php';
 
 
 function generate_vars($section, &$vars) {

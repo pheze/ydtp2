@@ -17,7 +17,7 @@ function generate_vars($section, &$vars) {
         $achat->utilisateur = $reservation->utilisateur;
         $achat->match_id = $reservation->match_id;
         $achat->qte = $reservation->qte;
-        $achat->date = time();
+        $achat->date = 'now()';
         $achat->save();
 
         $reservation->delete();

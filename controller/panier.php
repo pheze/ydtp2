@@ -1,7 +1,7 @@
 <?php 
 
-require '../model/reservation.inc.php';
-require '../model/achat.inc.php';
+require_once '../model/reservation.inc.php';
+require_once '../model/achat.inc.php';
 
 
 function generate_vars($section, &$vars) {
@@ -28,6 +28,13 @@ function generate_vars($section, &$vars) {
 
     $reservations = Reservation::filter_by_user($vars['userid']);
     $vars['reservations'] = $reservations;
+
+    $cout_total = 0;
+    foreach ($reservations as $reservation) {
+        $cout_total += $reservation->get_match()->prix;
+    }
+
+    $vars['cout_total'] = $cout_total;
 }
 
 ?>

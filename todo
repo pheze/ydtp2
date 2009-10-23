@@ -1,3 +1,11 @@
+== New shits ==
+ - Le mettre online dans un compte ~info de poly.
+ - Vérifier les specs 
+ - Vérifier avec IE 
+ - L'envoyer
+
+
+
 -- Controller
 [done] -(!) Faire en sorte que le index.html soit dans le premier niveau pour pas voir les repertoires.
 [done] - (!) Faire une listbox pour la liste des arenas...
@@ -8,11 +16,10 @@
 [done] - mettre le signout en haut a droite beau
 [done] -(!) mettre le nombre de nombre de siege lors de la creation d'un match (plutot que 0)
 [done] -(!) oter tous signes de debug
--(!) faire le "deprecated session remove match shit"
+[done] -(!) faire le "deprecated session remove match shit"
 [done]- modifier les boutons a gauche pour le admin match et admin arena.. un seul admin? 
 [done]- Afficher Aucun element lorsqu'il n'y a rien dans le panier.
 
 -- Model 
--[done] Eviter les filter('id = x and blabla.. pour la securite')
+[done] Eviter les filter('id = x and blabla.. pour la securite')
 - SQL injection 
-- Oter la 3ieme colonne

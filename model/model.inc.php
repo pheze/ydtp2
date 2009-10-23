@@ -13,7 +13,7 @@ abstract class Model {
 		// Use reflection to dynamically iterate through each field in the model.
         //foreach ($attr as $x => $y) {
         //    echo $x . '->' . $y . '<br>';
-        //}
+        // }
 
 		foreach (get_object_vars($obj) as $field => $value) {
 			if (array_key_exists($field, $attr)) {

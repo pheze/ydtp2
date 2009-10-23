@@ -22,7 +22,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 CREATE TABLE IF NOT EXISTS `achats` (
   `id` int(11) NOT NULL auto_increment,
   `utilisateur` int(11) NOT NULL,
-  `match` int(11) NOT NULL,
+  `match_id` int(11) NOT NULL,
   `qte` int(11) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY  (`id`)
@@ -99,9 +99,9 @@ INSERT INTO `matchs` (`id`, `description`, `arena`, `date`, `prix`, `places`) VA
 CREATE TABLE IF NOT EXISTS `reservations` (
   `id` int(11) NOT NULL auto_increment,
   `utilisateur` int(11) NOT NULL,
-  `match` int(11) NOT NULL,
+  `match_id` int(11) NOT NULL,
   `qte` int(11) NOT NULL,
-  `expiration` date NOT NULL,
+  `expiration` datetime NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 

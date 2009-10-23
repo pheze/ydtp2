@@ -21,13 +21,12 @@ if (!in_array($section, $sections)) {
     $section = 'unknown';
 }
 
-
-
 $vars = array();
 $vars['userid'] = get_auth();
 $vars['is_admin'] = is_admin();
 $vars['is_logged'] = ($vars['userid'] >= 0);
 $vars['theme'] = 'standard.css';
+
 
 include($section . '.php');
 generate_vars($section, $vars); 

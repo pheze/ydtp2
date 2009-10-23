@@ -6,7 +6,7 @@ require_once 'match.inc.php';
 class Reservation extends Model {
     public $utilisateur;
 
-	public $match;
+	public $match_id;
 	
 	public $qte;
 	
@@ -21,7 +21,7 @@ class Reservation extends Model {
     }
     
     public function get_match() {
-        return Match::get($this->match);
+        return Match::get($this->match_id);
     }
 
 	public static function filter_by_user($id) {

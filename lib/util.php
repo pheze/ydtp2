@@ -32,7 +32,8 @@ function is_admin() {
 }
 
 function clear_deprecated_reserved_matches() {
-    echo 'I should clear deprecated already reserved matches now :-)';
+    //todo
 }
+
 
 ?>

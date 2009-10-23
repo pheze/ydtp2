@@ -200,8 +200,8 @@
         <span>
             <label class="row">Thème de la page</label>
             <select id="theme" name="theme">
-                <option>Standard</option>
-                <option>Foncé</option>
+                <option value="Standard">Standard</option>
+                <option value="Dark">Foncé</option>
             </select>
         </span>
         <span><label for="accepte" class="row">Termes</label><input type="checkbox" id="accepte" name="accepte" /><label>J'accepte les termes de la license</label></span>

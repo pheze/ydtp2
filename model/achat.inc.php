@@ -1,6 +1,7 @@
 <?php
 
 require_once 'model.inc.php';
+require_once 'match.inc.php';
 
 class Achat extends Model {
     public $utilisateur;
@@ -10,6 +11,10 @@ class Achat extends Model {
 	public $qte;
 	
 	public $date;
+
+    public function get_match() {
+        return Match::get($this->match);
+    }
 
     public static function get($id) {
 		return parent::get(__CLASS__, $id);
@@ -21,7 +26,8 @@ class Achat extends Model {
 	
 	public static function filter_by_user($id) {
 		return self::filter('utilisateur = ' . $id);
-	}
+    }
+
 }
 
 ?>

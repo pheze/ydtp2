@@ -8,8 +8,13 @@ abstract class Model {
 	// Construct a model object from an array of attributes.
 	protected static function load($class, $attr) {
 		$obj = new $class();
-		
+
+
 		// Use reflection to dynamically iterate through each field in the model.
+        //foreach ($attr as $x => $y) {
+        //    echo $x . '->' . $y . '<br>';
+        //}
+
 		foreach (get_object_vars($obj) as $field => $value) {
 			if (array_key_exists($field, $attr)) {
 				$obj->$field = $attr[$field];
@@ -22,10 +27,11 @@ abstract class Model {
 	// Return a model object matching the database row with the given id.
     public static function get($class, $id) {
 		$query = "SELECT * FROM " . strtolower($class) . "s WHERE id = $id;";
-	    $result = mysql_query($query);
+        $result = mysql_query($query);
 		if (!$result) {
 			return $result;
-		}
+        }
+
 		$attr = mysql_fetch_assoc($result);
 	    return self::load($class, $attr);
     }

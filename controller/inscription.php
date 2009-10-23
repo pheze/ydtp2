@@ -64,7 +64,7 @@ function generate_vars($section, &$vars) {
         $errors['sexe'] = "Le sexe est invalide.";
     }
 
-    if (!preg_match("/^(Standard|Foncé)$/", $theme)) {
+    if (!preg_match("/^(Standard|Dark)$/", $theme)) {
         $errors['theme'] = "Le theme est invalide.";
     }
 
@@ -98,7 +98,7 @@ function generate_vars($section, &$vars) {
     $user->jour = $jour;
 	$user->mois = $mois;
 	$user->annee = $annee;
-	$user->sexe = ($sexe == 'f' ? 2 : 1);
+    $user->sexe = ($sexe == 'f' ? 2 : 1);
     $user->theme = $theme;
     $user->save();
  
